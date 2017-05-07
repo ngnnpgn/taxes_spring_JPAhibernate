@@ -7,7 +7,7 @@ Deja réaliser
 - Test de la couche DAO
 
 Reste a réaliser
-- Création d'une application Web MVC coté serveur en utilisant Tymeleaf comme moteur de templates.
+- Création d'une application Web MVC coté serveur en utilisant Thymeleaf comme moteur de templates.
 - Sécurité de l'application Web avec Spring Security
 - Création d'une API Restful
 - Création d'une application Web MVC coté client en utilisant AngularJS
