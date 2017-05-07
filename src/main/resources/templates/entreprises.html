@@ -8,20 +8,38 @@ layout:decorator="template1">
 </head>
 <body>
 	<h1>Test entriprises</h1>
-	<div layout:fragment = "content">
-	<table>
-		<tr>
-			<th>Code</th><th>Nom</th><th>Raison social</th><th>Email</th>
-			</tr>
-		<tr th:each= "e:${listeEntreprises}">
-				<td th:text= "${e.code}"></td>
-				<td th:text= "${e.nom}"></td>
-				<td th:text= "${e.raisonSociale}"></td>
-				<td th:text= "${e.email}"></td>
-		</tr>
-		
-		
-	</table>
+	<div layout:fragment = "content" class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Liste des entreprises</div>
+			<div class="panel-body">
+			<div class="container">
+				<form th:action="@{/entreprises}" method = "get">
+					<label>Mot cle:</label>
+					<input type="text" name="motCle"/>	
+					<button type="submit" class="btn btn-primary">Chercher</button>
+				</form>
+			</div>
+			<table class ="table table-striped ">
+				<tr>
+					<th>Code</th><th>Nom</th><th>Raison social</th><th>Email</th>
+				</tr>
+				<tr th:each= "e:${listeEntreprises}">
+					<td th:text= "${e.code}"></td>
+					<td th:text= "${e.nom}"></td>
+					<td th:text= "${e.raisonSociale}"></td>
+					<td th:text= "${e.email}"></td>
+				</tr>		
+			</table>
+			<div>
+				<ul class="nav nav-pills ">
+					<li th:class = "${status.index == pageCourante}?'active':''" th:each = "p, status:${pages}">
+						<a th:href="@{/entreprises(motCle=${motCle}, page=${status.index}, size=4)}" th:text = "${status.index} + 1"></a>
+					</li>
+				</ul>
+			</div>
+	     </div>
+		</div>
+	
 	</div>
 </body>
 </html>
