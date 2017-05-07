@@ -21,13 +21,14 @@ layout:decorator="template1">
 			</div>
 			<table class ="table table-striped ">
 				<tr>
-					<th>Code</th><th>Nom</th><th>Raison social</th><th>Email</th>
+					<th>Code</th><th>Nom</th><th>Raison social</th><th>Email</th><th>Taxes</th>
 				</tr>
 				<tr th:each= "e:${listeEntreprises}">
 					<td th:text= "${e.code}"></td>
 					<td th:text= "${e.nom}"></td>
 					<td th:text= "${e.raisonSociale}"></td>
 					<td th:text= "${e.email}"></td>
+					<td><a th:href="@{/taxes(code=${e.code})}">Taxes</a></td>
 				</tr>		
 			</table>
 			<div>
