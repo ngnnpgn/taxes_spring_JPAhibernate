@@ -65,6 +65,7 @@ public class TaxeControler {
 		
 		Entreprise e = new Entreprise(); 
 		e.setCode(code);
+		model.addAttribute("entreprises", entrepriseRepository.findAll());
 		model.addAttribute("taxes", taxeRepository.findByEntreprise(e));
 		return "taxes";
 		
